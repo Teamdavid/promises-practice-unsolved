@@ -19,8 +19,15 @@
  *          }
  */
 
-export function parsePromised() {
+export function parsePromised(jsonString) {
   // Your code goes here...
+  return new Promise((resolve, reject) => {
+    resolve(() => {
+      try {JSON.parse(jsonString)} catch (err) { err }});
+    reject((error) => {
+      error;
+    })
+  })
 }
 
 /**
@@ -30,8 +37,9 @@ export function parsePromised() {
  * * logs the message property of the error object
  */
 
-export function onReject() {
+export function onReject(err) {
   // Your code goes here...
+  return console.log(err.message);
 }
 
 /**
@@ -46,8 +54,20 @@ export function onReject() {
  * Example: export const promiseHandler = () => return <your code>
  */
 
-export const handlePromise = () => {
+``` Please Help Me Here, I asked a question in the Discord but no one responded ```
+
+export const handlePromise = (promise) => {
   // Your code goes here...
+  // return promise.then((data) => data).catch((err) => console.log(err.message))
+  return promise
+          .then((data) => data)
+          .catch((err) => {
+            if('message' in err) {
+              onReject(err)
+            } else {
+              console.log(err)
+            }
+          })
 };
 
 // === TEST YOURSELF ===
