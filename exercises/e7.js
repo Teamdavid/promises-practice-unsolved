@@ -54,7 +54,11 @@ export function onReject(err) {
  * Example: export const promiseHandler = () => return <your code>
  */
 
-``` Please Help Me Here, I asked a question in the Discord but no one responded ```
+/*
+
+      Please Help me here, I asked a question in the discord but no one responded.
+
+*/
 
 export const handlePromise = (promise) => {
   // Your code goes here...
