@@ -17,7 +17,7 @@
 export const getPromise = (num) => {
   // Your code goes here...
   if((num - Math.floor(num)) === 0) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       resolve(num)
     })
   } else {

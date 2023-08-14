@@ -39,7 +39,7 @@ export function alwaysThrows() {
 
 export function onReject(arg) {
   // Your code goes here...
-  if(typeof arg === 'object') {
+  if(arg.message) {
     console.log(arg.message);
   } else {
     console.log(arg);
@@ -68,19 +68,18 @@ export function onReject(arg) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve((data) => data)
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => alwaysThrows(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .then((data) => iterate(data))
-                        .catch((err) => onReject(err));
+export const promise = Promise.resolve(iterate(1))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => alwaysThrows(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .then((data) => iterate(data))
+  .catch((err) => onReject(err));
 
 
 

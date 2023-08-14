@@ -24,7 +24,7 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr).catch((err) => err);
 
 /**
  * @task
@@ -72,7 +72,7 @@ export function handlePromise3(promiseArr) {
  * The value of newPromiseArr MUST have more than one promise in the array!
  */
 
-export const newPromiseArr = promiseArr.filter((promise) => promise);
+export const newPromiseArr = promiseArr.filter((promise) => promise !== promise2 && promise !== promise3);
 
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {

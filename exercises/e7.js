@@ -22,11 +22,11 @@
 export function parsePromised(jsonString) {
   // Your code goes here...
   return new Promise((resolve, reject) => {
-    resolve(() => {
-      try {JSON.parse(jsonString)} catch (err) { err }});
-    reject((error) => {
-      error;
-    })
+    try {
+      resolve(JSON.parse(jsonString));
+    } catch (err) {
+      reject(err);
+    }
   })
 }
 
@@ -54,24 +54,18 @@ export function onReject(err) {
  * Example: export const promiseHandler = () => return <your code>
  */
 
-/*
-
-      Please Help me here, I asked a question in the discord but no one responded.
-
-*/
-
 export const handlePromise = (promise) => {
   // Your code goes here...
   // return promise.then((data) => data).catch((err) => console.log(err.message))
   return promise
-          .then((data) => data)
-          .catch((err) => {
-            if('message' in err) {
-              onReject(err)
-            } else {
-              console.log(err)
-            }
-          })
+    .then((data) => data)
+    .catch((err) => {
+      if(err.message) {
+        onReject(err)
+      } else {
+        console.log(err)
+      }
+    })
 };
 
 // === TEST YOURSELF ===

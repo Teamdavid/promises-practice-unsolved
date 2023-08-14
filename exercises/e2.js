@@ -38,9 +38,9 @@ export const getPromise = (bool) => {
 export const handlePromise = (promise) => {
   // Your code goes here...
   return promise.then(
-          (data) => data,
-          () => 'Uh Oh'
-        )
+    (data) => data,
+    () => 'Uh Oh'
+  )
 
 };
 
